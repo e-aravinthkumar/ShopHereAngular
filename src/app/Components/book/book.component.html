@@ -1,0 +1,24 @@
+<div class="flex flex-wrap justify-center  gap-5 py-4 px-2">
+    <div class="flex mx-auto sm:w-40 w-24 ">
+        <img class="object-contain" [src]="book.imgUrl" [alt]="book.name">
+    </div>
+    <div class="flex flex-col md:w-[31rem] sm:w-[21rem] w-56">
+        <a class="font-semibold sm:max-h-20 max-h-12 sm:text-xl overflow-hidden">{{book.name}}</a>
+        <h1 class="text-gray-500 sm:text-base text-sm ">
+            {{book.language}} Edition | by <span>{{book.author}}</span> | <span>{{book.publicationDate}}</span>
+        </h1>
+        <h1 class="sm:mt-8 mt-4 flex items-center justify-between ">
+            <span class="font-bold sm:text-xl  font-base text-blue-500">
+                {{ book.price| currency:'INR'}}
+            </span>
+            <span class="px-3">
+                <button *ngIf="!isIteminCart()" (click)="addToCart()"class="grid items-center bg-blue-500 text-white sm:w-32 sm:h-12 w-28 h-8">
+                    Add to Cart
+                </button>
+                <button *ngIf="isIteminCart()" (click)="removeFromCart()"class="grid items-center bg-blue-500 text-white sm:w-32 sm:h-12 w-28 h-8">
+                    Remove
+                </button>
+            </span>
+        </h1>
+    </div>
+</div>
